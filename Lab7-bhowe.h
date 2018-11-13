@@ -54,7 +54,34 @@ vector<double> bubble_sort(vector<double> & myVector)
 
 vector<double> insertion_sort(vector<double> & myVector)
 {
+	double val;
+	for (int i = 1; i < myVector.size(); i++)
+	{
+		val = myVector.at(i);
+		int j = i - 1;
+		while (j >= 0 && myVector.at(j) > val)
+		{
+			myVector.at(j + 1) = myVector.at(j);
+			j--;
+		}
+		myVector.at(j + 1) = val;
+	}
+
 	return myVector;
+
+	/*
+	Pseudocode from http://rosettacode.org/wiki/Sorting_algorithms/Insertion_sort
+	function insertionSort(array A)
+    for i from 1 to length[A]-1 do
+        value := A[i] 
+        j := i-1
+        while j >= 0 and A[j] > value do
+            A[j+1] := A[j]
+            j := j-1
+        done
+        A[j+1] = value
+    done
+	*/
 }
 
 vector<double> selection_sort(vector<double> & myVector)
